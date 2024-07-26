@@ -1,0 +1,31 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="col-sm-10">
+    <h3 class="my-5">HOME PAGE</h3>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">This is blog title</h1>
+            <p class="lead">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed iusto minima numquam, ad rem aliquid quidem odio alias consequatur ipsum, cupiditate optio! Aperiam magnam explicabo at beatae delectus fugiat iure non quidem neque nemo, blanditiis nihil laudantium rerum voluptatem consectetur necessitatibus optio animi exercitationem harum est ea suscipit molestiae repellat?</p>
+        </div>
+    </div>
+
+    <div class="my-3">
+        <form action="">
+            {% csrf_token %}
+            {% if posts %}
+            {% for post in posts %}
+            <div class="jumbotron jumbotron-fluid mb-3">
+                <h1 class="display-4">{{post.title}}</h1>
+                <p class="lead">{{post.desc}}</p>
+            </div>
+            {% endfor %}
+            {% endif %}
+        </form>
+    </div>
+</div>
+
+
+{% endblock content %}
